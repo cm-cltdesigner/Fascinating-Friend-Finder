@@ -9,7 +9,7 @@ This App is a full stack node app deployed on Heroku. Data is saved on a file, i
 Deployment on a node server is required. This app is setup to listen on a Heroku default port; in the absence of Heroku, it sets the port to 3000 instead. After downloading the repository, run `npm i` from the command line to ensure you have the necessary packages included in the package.json file.
 
 ## Example of the Fascinating Friend Finder App
-Please visit the [Live Demo](https://)
+Please visit the [Live Demo](https://cm-cltdesigner.github.io/Fascinating-Friend-Finder/)
 
 
 ## Future Development
