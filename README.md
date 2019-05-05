@@ -6,7 +6,8 @@ A compatibility-based "FriendFinder" application was build in the repo. This ful
 This App is a full stack node app deployed on Heroku. Data is saved on a file, instead of a database. It uses `Express` to configure and operate the server, `Body-Parser` to pass the json data back and forth between files & functions, and `fs` to read & write from the data files on the server. Many routes are setup to complete the survey, to view the JSON API, and post data into the app. One route file will bring all users to the homepage, regardless of the path the user attempts to access.
 
 ## How can I use the app?
-Deployment on a node server is required. This app is setup to listen on a Heroku default port; in the absence of Heroku, it sets the port to 3000 instead. After downloading the repository, run `npm i` from the command line to ensure you have the necessary packages included in the package.json file.
+Deployment on a node server is required. This app is setup to listen on a Heroku default port; in the absence of Heroku, it sets the port to 3000 instead. <img src="https://i.ibb.co/D41Cp8h/Screen-Shot-2019-05-05-at-2-14-16-PM.png"><br>
+ After downloading the repository, run `npm i` from the command line to ensure you have the necessary packages included in the package.json file.
 
 ## Example of the Fascinating Friend Finder App
 Please visit the [Live Demo](https://)
@@ -18,3 +19,6 @@ For future development I would love to add more css features for the users inter
 ## License
 CREATED BY: COURTNEY MANERY, GITCREATIV LLC | 2019<br>
 [MIT](https://choosealicense.com/licenses/mit/)# Friend-Finder
+
+
+<a href="https://ibb.co/1Z0q6d1"><img src="https://i.ibb.co/D41Cp8h/Screen-Shot-2019-05-05-at-2-14-16-PM.png" alt="Screen-Shot-2019-05-05-at-2-14-16-PM" border="0"></a>
