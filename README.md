@@ -18,7 +18,4 @@ For future development I would love to add more css features for the users inter
 
 ## License
 CREATED BY: COURTNEY MANERY, GITCREATIV LLC | 2019<br>
-[MIT](https://choosealicense.com/licenses/mit/)# Friend-Finder
-
-
-<a href="https://ibb.co/1Z0q6d1"><img src="https://i.ibb.co/D41Cp8h/Screen-Shot-2019-05-05-at-2-14-16-PM.png" alt="Screen-Shot-2019-05-05-at-2-14-16-PM" border="0"></a>
+[MIT](https://choosealicense.com/licenses/mit/)
