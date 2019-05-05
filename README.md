@@ -1,4 +1,4 @@
-# Welcome to Fascinating Friend Finder
+# Welcome to the Fascinating Friend Finder App.
 <img src="https://i.ibb.co/WWvtqWp/fff-app.jpg"><br>
 A compatibility-based "FriendFinder" application was build in the repo. This full-stack site will take in results from the users' surveys, then compare their answers with those from other users. The app will then display the name and picture of the user with the best overall match.
 
