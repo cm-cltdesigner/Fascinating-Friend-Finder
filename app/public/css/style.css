@@ -1,0 +1,14 @@
+h3 {
+	color: slategrey;
+	font-weight: bold;
+}
+
+p {
+	font-size: 1.35em;
+}
+
+#submitButton {
+	line-height: 200%;
+	width: 100%;
+	margin: 25px 0;
+}
