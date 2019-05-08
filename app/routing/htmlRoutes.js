@@ -1,5 +1,4 @@
-// HTML Routes
-// =============================================================
+// NOTE: THIS FOR HMTL ROUTES
 
 module.exports = function(app, path) {
 	app.get("/", function(req, res) {
