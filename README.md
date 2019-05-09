@@ -10,7 +10,7 @@ Deployment on a node server is required. This app is setup to listen on a Heroku
  After downloading the repository, run `npm i` from the command line to ensure you have the necessary packages included in the package.json file.
 
 ## Example of the Fascinating Friend Finder App
-Feel free to visit the [Live Demo](https://cm-cltdesigner.github.io/Fascinating-Friend-Finder/)
+Feel free to visit the [Live Demo](https://fascinating-friend-finder.herokuapp.com/)
 
 
 ## Future Development
