@@ -1,5 +1,6 @@
 // NOTE: THIS IS THE API'S ROUTES
 var fs = require('fs');
+var bodyParser = require('body-parser');
 
 module.exports = function(app, path) {
 	app.get('/api/friends', function(req, res) {
@@ -12,7 +13,7 @@ module.exports = function(app, path) {
 		});
 	});
 
-	app.post('/api/friends', function(req, res) {
+	app.post('/api/friends.js', function(req, res) {
 		// Closest match object
 		var results = [];
 
