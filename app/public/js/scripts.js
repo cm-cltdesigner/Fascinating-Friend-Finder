@@ -1,3 +1,4 @@
+// NOTE: THIS IS THE LOGIC FOR QUESTIONS + ANSWERS
 var questions = createQuestions();
 
 function createQuestions(){

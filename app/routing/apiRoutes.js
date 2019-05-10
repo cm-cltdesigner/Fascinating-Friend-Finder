@@ -39,7 +39,7 @@ module.exports = function(app, path) {
 				}
 				else {
 					alert(results);
-					console.log("closestMatch");
+					console.log("Match Results");
 				}
 		    }
 		    console.log("Closest match: " + friendFile[closestMatch].name);
