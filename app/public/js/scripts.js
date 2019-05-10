@@ -1,15 +1,15 @@
 function createQuestions() {
-	let q1 = "I'm a great listener.";
-	let q2 = "I talk too much.";
-	let q3 = "I hate meeting new people.";
-	let q4 = "I don't like being bothered.";
-	let q5 = "I'm a crowd pleaser.";
-	let q6 = "I love enjoying my life.";
-	let q7 = "I'm a extrovert.";
-	let q8 = "I'm a introvert.";
-	let q9 = "I'm a tree-hugger.";
-	let q10 = "I love to travel.";
-	let questionArray = [ q1, q2, q3, q4, q5, q6, q7, q8, q9, q10 ];
+	let q0 = "I'm a great listener.";
+	let q1 = "I talk too much.";
+	let q2 = "I hate meeting new people.";
+	let q3 = "I don't like being bothered.";
+	let q4 = "I'm a crowd pleaser.";
+	let q5 = "I love enjoying my life.";
+	let q6 = "I'm a extrovert.";
+	let q7 = "I'm a introvert.";
+	let q8 = "I'm a tree-hugger.";
+	let q9 = "I love to travel.";
+	let questionArray = [ q0, q1, q2, q3, q4, q5, q6, q7, q8, q9 ];
 	return questionArray;
 }
 
@@ -51,24 +51,24 @@ for ( var selector in config ) {
 
 
 // User Submit Section
-$( "#submitButton" ).on( "click", function( event ) {
+$( "#submitButton" ).on( "click", function(event) {
 	event.preventDefault();
 	// Making sure everything is selected
 	function userValidation() {
 		// Correct validation
 		let valid = true;
-		if ( $( "#name" ).val() === "" ) {
+		if ( $("#name").val() === "" ) {
 			valid = false;
 		}
-		if ( $( "#image" ).val() === "" ) {
+		if ( $("#image").val() === "" ) {
 			valid = false;
 		}
-		if ( $( "#image" ).val().charAt( 4 ) !== ":" && $( "#image" ).val().charAt( 5 ) !== ":" ) {
+		if ( $("#image").val().charAt( 4 ) !== ":" && $("#image").val().charAt( 5 ) !== ":" ) {
 			// if validation is incorrect
 			valid = false;
 		}
 		// Check dropdown boxes for empty values (top values are always empty)
-		$( ".chosen-select" ).each( function() {
+		$(".chosen-select").each( function() {
 			if ( $( this ).val() === "" ) {
 				// If a valid option has not been selected, validation is incorrect
 				valid = false;
@@ -77,12 +77,12 @@ $( "#submitButton" ).on( "click", function( event ) {
 		// This function will return true if validation is correct, false if not
 		return valid;
 	}
-	// Moving forward if validation is correct
+	// if validation is correct
 	if ( userValidation() ) {
 		//Ansewrs are stored
 		var formAnswers = {
-			"name": $( "#name" ).val().trim(),
-			"photo": $( "#image" ).val().trim(),
+			"name": $("#name").val().trim(),
+			"photo": $("#image").val().trim(),
 			"answers": [
 				parseInt( $( "#q0" ).val() ),
 				parseInt( $( "#q1" ).val() ),
@@ -96,14 +96,14 @@ $( "#submitButton" ).on( "click", function( event ) {
 				parseInt( $( "#q9" ).val() )
 			]
 		};
-		// // POST to api/friends.
-		// $.post( "/api/friends", formAnswers, function( data ) {
-		// 	// Update the match modal with the correct name & image
-		// 	$( "#friendNameDiv" ).html( "<h2>" + data.name + "</h2>" );
-		// 	$( "#friendImg" ).attr( "src", data.photo );
-		// 	// Show the match modal
-		// 	$( "#myModal" ).modal( "toggle" );
-		// } );
+		// POST to api/friends.
+		$.post( "/api/friends", formAnswers, function(data) {
+			// Update the match modal with the correct name & image
+			$( "#friendNameDiv" ).html( "<h2>" + data.name + "</h2>" );
+			$( "#friendImg" ).attr( "src", data.photo );
+			// Show the match model
+			$( "#myModal" ).modal( "toggle" );
+		} );
 	}
 	// If the user validation failed
 	else {
