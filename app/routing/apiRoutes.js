@@ -1,57 +1,28 @@
 // NOTE: THIS IS THE API'S ROUTES
 var fs = require('fs');
+var friendsResults = require('../data/friends');
 
-module.exports = function(app, path) {
-	app.get('/api/friends.js', function(req, res) {
-		fs.readFile("app/data/friends.js", "utf8", function(err, data) {
-			if (err) {
-				return console.log(err);
-			} else {
-				res.json(JSON.parse(data));
-			}
-		});
+module.exports = function (app, path) {
+	app.get('/api/friends', function (req, res) {
 	});
 
-	app.post('/api/friends.js', function(req, res) {
-		// Closest match object
+	app.post('/api/friends', function (req, res) {
 		var results = [];
-
-		// Stringof JSON
-		var postResponse = JSON.stringify(req.body);
-
-		fs.readFile('app/data/friends.js', function (err, data) {
-			// Reading the existing array
-		    var friendFile = JSON.parse(data);
-
-		    // Storing the difference in values
-		    var closestMatch = 0;
-		    var matchScore = 999;
-
-		    // Firing to loop through the answers
-		    for (var i = 0; i < friendFile.length; i++) {
-		    	var spaceBetween = 0;
-		    	for (var i = 0; i < friendFile[i]['answers[]'].length; i++) {
-		    		spaceBetween += Math.abs((parseInt(req.body['answers[]'][i]) - parseInt(friendFile[i]['answers[]'][i])));
-				}
-				if(spaceBetween <= matchScore) {
-					matchScore = spaceBetween;
-					closestMatch = i;
-				}
-				else {
-					alert(results);
-					console.log("Match Results");
-				}
-		    }
-		    console.log("Closest match: " + friendFile[closestMatch].name);
-		    results.push(friendFile[closestMatch]);
-
-		    // Add the new person to the existing array
-		    friendFile.push(JSON.parse(postResponse));
-
-		    // // Push back the updated results
-		    fs.writeFile("app/data/friends.js", JSON.stringify(friendFile));
-			res.send(results[0]);
-
-		});
+		var postResponse = req.body;
+		var closestMatch = 40;
+		var closestFriend = 0
+		// Firing to loop through the answers
+		for (var i = 0; i < friendsResults.length; i++) {
+			var spaceBetween = 0;
+			for (var j = 0; j < postResponse.answers.length; j++) {
+				spaceBetween += Math.abs((parseInt(postResponse.answers[j]) - parseInt(friendsResults[i].answers[j])));
+			}
+			if (spaceBetween <= closestMatch) {
+				closestMatch = spaceBetween;
+				closestFriend = i;
+			}
+		}
+		results.push(friendsResults[closestFriend]);
+		res.send(results[0]);
 	});
 }

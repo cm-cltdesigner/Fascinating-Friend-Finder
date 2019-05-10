@@ -44,13 +44,6 @@ var config = {
 		width: "95%"
 	}
 };
-
-
-// for (var selector in config) {
-// 	$(selector).chosen(config[selector]);
-// }
-
-
 // User's Submit-Section
 $("#submitButton").on("click", function(event){
 	event.preventDefault();
@@ -64,11 +57,6 @@ $("#submitButton").on("click", function(event){
 		if ($("#image").val() === ""){
 			valid = false;
 		}
-		// if ( $("#image").val().charAt( 4 ) !== ":" && $("#image").val().charAt( 5 ) !== ":" ) {
-		// 	// if validation is incorrect
-		// 	valid = false;
-		// }
-		// Check dropdown boxes for empty values (top values are always empty)
 		$(".chosen-select").each( function() {
 			if ( $(this).val() === "" ) {
 				// If a valid option has not been selected, validation is incorrect
@@ -80,6 +68,7 @@ $("#submitButton").on("click", function(event){
 	}
 	// If validation is correct
 	if (userValidation()){
+		console.log("Made it in");
 		//Ansewrs are stored
 		var formAnswers = {
 			"name":$("#name").val().trim(),
@@ -97,14 +86,18 @@ $("#submitButton").on("click", function(event){
 				parseInt($("#q9").val())
 			]
 		};
-		// POST/Create to api/friends.js
-		$.post("/api/friends.js", formAnswers, function(){
+		$.ajax({
+			type: "POST",
+			url: "/api/friends",
+			data: formAnswers,
+			traditional: true
+		  }).then(function(data){
 			// Updating the match with the correct name + photo
 			$("#friendNameDiv").html( "<h2>" + data.name + "</h2>");
 			$("#friendImg").attr( "src", data.photo);
 			// Showing the match
 			$("#myModal").modal("toggle");
-		} );
+		  })
 	}
 	// If the user validation failed
 	else {
