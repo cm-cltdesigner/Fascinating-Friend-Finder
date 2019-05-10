@@ -77,7 +77,7 @@ $( "#submitButton" ).on( "click", function(event) {
 		// This function will return true if validation is correct, false if not
 		return valid;
 	}
-	// if validation is correct
+	// If validation is correct
 	if ( userValidation() ) {
 		//Ansewrs are stored
 		var formAnswers = {
