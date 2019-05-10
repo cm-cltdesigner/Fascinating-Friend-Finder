@@ -69,7 +69,7 @@ $( "#submitButton" ).on( "click", function(event) {
 		}
 		// Check dropdown boxes for empty values (top values are always empty)
 		$(".chosen-select").each( function() {
-			if ( $( this ).val() === "" ) {
+			if ( $(this).val() === "" ) {
 				// If a valid option has not been selected, validation is incorrect
 				valid = false;
 			}
@@ -97,12 +97,12 @@ $( "#submitButton" ).on( "click", function(event) {
 			]
 		};
 		// POST to api/friends.
-		$.post( "/api/friends.js", formAnswers, function(data) {
+		$.post("/api/friends.js", formAnswers, function() {
 			// Update the match modal with the correct name & image
-			$( "#friendNameDiv" ).html( "<h2>" + data.name + "</h2>" );
-			$( "#friendImg" ).attr( "src", data.photo );
-			// Show the match model
-			$( "#myModal" ).modal( "toggle" );
+			$("#friendNameDiv").html( "<h2>" + data.name + "</h2>");
+			$("#friendImg").attr( "src", data.photo);
+			// Show the match modal
+			$("#myModal").modal("toggle");
 		} );
 	}
 	// If the user validation failed
