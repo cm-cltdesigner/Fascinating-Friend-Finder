@@ -15,18 +15,18 @@ function createQuestions() {
 
 var questions = createQuestions();
 
-$( "#questionDiv" ).append( '<div class="row"><div class="col-lg-12">' );
-for ( var i = 0; i < questions.length; i++ ) {
-	$( "#questionDiv" ).append( '<h3>Question ' + ( i + 1 ) + '</h3>' + '<p>' + questions[ i ] + '</p>' + 
+$("#questionDiv").append('<div class="row"><div class="col-lg-12">');
+for (var i = 0; i < questions.length; i++) {
+	$("#questionDiv").append( '<h3>Question ' + ( i + 1 ) + '</h3>' + '<p>' + questions[ i ] + '</p>' + 
 	'<select class="chosen-select dropList" id="q' + i + '">' + '<option value=""></option>' + 
 	'<option value="1">1 (Strongly Disagree)</option>' + 
 	'<option value="2">2 (Disagree)</option>' + 
 	'<option value="3">3 (Neutral)</option>' + 
 	'<option value="4">4 (Agree)</option>' + 
-	'<option value="5">5 (Strongly Agree)</option>' + '</select>' );
+	'<option value="5">5 (Strongly Agree)</option>' + '</select>');
 }
 
-$( "#questionDiv" ).append( '<button type="submit" class="btn btn-primary" id="submitButton">Submit</button>' + '</div></div>' );
+$("#questionDiv").append('<button type="submit" class="btn btn-primary" id="submitButton">Submit</button>' + '</div></div>');
 // Chosen Dropdown Setup
 var config = {
 	".chosen-select": {},
@@ -45,12 +45,12 @@ var config = {
 };
 
 
-for (var selector in config) {
-	$(selector).chosen(config[selector]);
-}
+// for (var selector in config) {
+// 	$(selector).chosen(config[selector]);
+// }
 
 
-// User Submit Section
+// User's Submit-Section
 $( "#submitButton" ).on( "click", function(event) {
 	event.preventDefault();
 	// Making sure everything is selected
@@ -78,30 +78,30 @@ $( "#submitButton" ).on( "click", function(event) {
 		return valid;
 	}
 	// If validation is correct
-	if ( userValidation() ) {
+	if (userValidation() ) {
 		//Ansewrs are stored
 		var formAnswers = {
 			"name": $("#name").val().trim(),
 			"photo": $("#image").val().trim(),
 			"answers": [
-				parseInt( $( "#q0" ).val() ),
-				parseInt( $( "#q1" ).val() ),
-				parseInt( $( "#q2" ).val() ),
-				parseInt( $( "#q3" ).val() ),
-				parseInt( $( "#q4" ).val() ),
-				parseInt( $( "#q5" ).val() ),
-				parseInt( $( "#q6" ).val() ),
-				parseInt( $( "#q7" ).val() ),
-				parseInt( $( "#q8" ).val() ),
-				parseInt( $( "#q9" ).val() )
+				parseInt($("#q0").val() ),
+				parseInt($("#q1").val() ),
+				parseInt($("#q2").val() ),
+				parseInt($("#q3").val() ),
+				parseInt($("#q4").val() ),
+				parseInt($("#q5").val() ),
+				parseInt($("#q6").val() ),
+				parseInt($("#q7").val() ),
+				parseInt($("#q8").val() ),
+				parseInt($("#q9").val() )
 			]
 		};
-		// POST to api/friends.
+		// POST/Create to api/friends.js
 		$.post("/api/friends.js", formAnswers, function() {
-			// Update the match modal with the correct name & image
+			// Updating the match with the correct name + photo
 			$("#friendNameDiv").html( "<h2>" + data.name + "</h2>");
 			$("#friendImg").attr( "src", data.photo);
-			// Show the match modal
+			// Showing the match
 			$("#myModal").modal("toggle");
 		} );
 	}
