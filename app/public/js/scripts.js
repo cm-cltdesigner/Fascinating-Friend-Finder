@@ -45,8 +45,8 @@ var config = {
 };
 
 
-for ( var selector in config ) {
-	$( selector ).chosen( config[ selector ] );
+for (var selector in config) {
+	$(selector).chosen(config[selector]);
 }
 
 
@@ -57,16 +57,16 @@ $( "#submitButton" ).on( "click", function(event) {
 	function userValidation() {
 		// Correct validation
 		let valid = true;
-		if ( $("#name").val() === "" ) {
+		if ($("#name").val() === "" ) {
 			valid = false;
 		}
-		if ( $("#image").val() === "" ) {
+		if ($("#image").val() === "" ) {
 			valid = false;
 		}
-		if ( $("#image").val().charAt( 4 ) !== ":" && $("#image").val().charAt( 5 ) !== ":" ) {
-			// if validation is incorrect
-			valid = false;
-		}
+		// if ( $("#image").val().charAt( 4 ) !== ":" && $("#image").val().charAt( 5 ) !== ":" ) {
+		// 	// if validation is incorrect
+		// 	valid = false;
+		// }
 		// Check dropdown boxes for empty values (top values are always empty)
 		$(".chosen-select").each( function() {
 			if ( $(this).val() === "" ) {
@@ -74,7 +74,7 @@ $( "#submitButton" ).on( "click", function(event) {
 				valid = false;
 			}
 		} );
-		// This function will return true if validation is correct, false if not true
+		// This function will return true if validation is correct, false if not true of course
 		return valid;
 	}
 	// If validation is correct
