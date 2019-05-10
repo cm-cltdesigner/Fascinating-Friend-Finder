@@ -1,6 +1,5 @@
 // NOTE: THIS IS THE API'S ROUTES
 var fs = require('fs');
-var bodyParser = require('body-parser');
 
 module.exports = function(app, path) {
 	app.get('/api/friends', function(req, res) {
