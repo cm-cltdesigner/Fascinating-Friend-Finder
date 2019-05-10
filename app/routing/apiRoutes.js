@@ -36,7 +36,11 @@ module.exports = function(app, path) {
 				if(spaceBetween <= matchScore) {
 					matchScore = spaceBetween;
 					closestMatch = i;
-		    	}
+				}
+				else {
+					alert(results);
+					console.log("closestMatch");
+				}
 		    }
 		    console.log("Closest match: " + friendFile[closestMatch].name);
 		    results.push(friendFile[closestMatch]);
