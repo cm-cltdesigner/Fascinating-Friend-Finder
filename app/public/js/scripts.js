@@ -74,7 +74,7 @@ $( "#submitButton" ).on( "click", function(event) {
 				valid = false;
 			}
 		} );
-		// This function will return true if validation is correct, false if not
+		// This function will return true if validation is correct, false if not true
 		return valid;
 	}
 	// If validation is correct
@@ -97,7 +97,7 @@ $( "#submitButton" ).on( "click", function(event) {
 			]
 		};
 		// POST to api/friends.
-		$.post( "/api/friends", formAnswers, function(data) {
+		$.post( "/api/friends.js", formAnswers, function(data) {
 			// Update the match modal with the correct name & image
 			$( "#friendNameDiv" ).html( "<h2>" + data.name + "</h2>" );
 			$( "#friendImg" ).attr( "src", data.photo );
